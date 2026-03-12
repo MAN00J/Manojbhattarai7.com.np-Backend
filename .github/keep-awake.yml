@@ -1,0 +1,16 @@
+name: Keep Render Awake
+
+
+on:
+  schedule:
+    
+    - cron: '*/10 * * * *'
+  workflow_dispatch: 
+
+jobs:
+  ping-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Request to Render
+        
+        run: curl -s https://your-backend-api.onrender.com/healthcheck > /dev/null
