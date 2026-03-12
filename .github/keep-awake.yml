@@ -13,4 +13,4 @@ jobs:
     steps:
       - name: Send Request to Render
         
-        run: curl -s https://your-backend-api.onrender.com/healthcheck > /dev/null
+        run: curl -s https://my-backend-v0sn.onrender.com > /dev/null
