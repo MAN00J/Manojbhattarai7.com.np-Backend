@@ -1,16 +1,15 @@
 name: Keep Render Awake
 
-
 on:
   schedule:
-    
-    - cron: '*/10 * * * *'
+    # This now runs every 5 minutes
+    - cron: '*/5 * * * *'
   workflow_dispatch: 
 
 jobs:
   ping-job:
     runs-on: ubuntu-latest
     steps:
-      - name: Send Request to Render
+      - name: Ping Server
+        run: curl -s https://your-backend-api.onrender.com/healthcheck > /dev/null
         
-        run: curl -s https://my-backend-v0sn.onrender.com > /dev/null
