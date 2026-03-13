@@ -3,11 +3,11 @@ import express from "express";
 import verifyToken from "../../middleware/Tokenvarify.js";
 
 
-const router = express.Router();
+const RouterDash = express.Router();
 
 // Dashboard
-router.get("/enter", verifyToken, (req, res) => {
+RouterDash.get("/enter", verifyToken, (req, res) => {
     res.status(200).json({ message: `Welcome, ${req.user.username}` });
 });
 
-export default router;
+export default RouterDash;
