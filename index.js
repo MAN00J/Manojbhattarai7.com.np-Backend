@@ -22,7 +22,7 @@ app.use(cookieParser());
 // CORS Setup
 const allowedOrigins = [
   "https://manojbhattarai7.com.np", // live frontend
-  "http://127.0.0.1:5500"           // local testing
+  "*"           
 ];
 app.get('/healthcheck', (req, res) => {
   console.log(`Ping received at: ${new Date().toLocaleString()}`);
