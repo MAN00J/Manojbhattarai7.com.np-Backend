@@ -21,8 +21,8 @@ app.use(cookieParser());
 
 // CORS Setup
 // const allowedOrigins = [
-//   "https://manojbhattarai7.com.np"// live frontend
-//         
+//   "https://manojbhattarai7.com.np",// live frontend
+//    "http://localhost:3000" // local frontend
 // ];
 app.get('/healthcheck', (req, res) => {
   console.log(`Ping received at: ${new Date().toLocaleString()}`);
@@ -53,7 +53,7 @@ app.use('/api/website/content', listrouter);
 mongoose.connect(process.env.dburl)
     .then(() => {
         console.log("MongoDB connected");
-        const port = process.env.PORT || 8080; // use capital PORT for Render
+        const port = process.env.PORT || 80600; // use capital PORT for Render
         app.listen(port, () => {
             console.log(`Server running on port ${port}`);
         });
