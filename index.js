@@ -21,26 +21,26 @@ app.use(express.json());
 app.use(cookieParser());
 
 // CORS Setup
-// const allowedOrigins = [
-//   "https://manojbhattarai7.com.np",// live frontend
-//    "http://localhost:3000" // local frontend
-// ];
+const allowedOrigins = [
+  "https://manojbhattarai7.com.np",// live frontend
+   "http://localhost:3000" // local frontend
+];
 app.get('/healthcheck', (req, res) => {
   console.log(`Ping received at: ${new Date().toLocaleString()}`);
   res.status(200).send('OK');
 });
-// app.use(cors({
-//   origin: function(origin, callback){
-//     // allow requests with no origin (Postman, mobile apps)
-//     if(!origin) return callback(null, true);
-//     if(allowedOrigins.includes(origin)){
-//       return callback(null, true);
-//     } else {
-//       return callback(new Error("Not allowed by CORS"));
-//     }
-//   },
-//   credentials: true
-// }));
+app.use(cors({
+  origin: function(origin, callback){
+    // allow requests with no origin (Postman, mobile apps)
+    if(!origin) return callback(null, true);
+    if(allowedOrigins.includes(origin)){
+      return callback(null, true);
+    } else {
+      return callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true
+}));
 
 // Routes
 app.use('/api/website/enquiry', enquiryInsert);
